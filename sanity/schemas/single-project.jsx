@@ -20,16 +20,6 @@ export default {
         }
       },
       {
-        name:'classname',
-        title: 'CSS class', 
-        type: 'string'
-      },
-      {
-        title: 'Date',
-        name: 'date',
-        type: 'datetime'
-      },
-      {
         name: 'projectdescription',
         title: 'Description',
         type: 'array', 
@@ -99,20 +89,16 @@ export default {
                   },
               ]
             }, 
-            {
-              title: 'Embed Video', 
-              name: 'embedVid',
-              type: 'object', 
-              fields: [
-                {name: 'text', type: 'text'
-              , title: 'Embed Video'},
-              ]
-            },
           
 
 
         ]
       },
+      {
+        title: 'Video Snippet (if video)',
+        name: 'vid_snippet',
+        type: 'file',
+      }
 
       
     ]
