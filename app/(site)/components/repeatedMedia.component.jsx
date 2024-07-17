@@ -1,18 +1,28 @@
 import React from 'react';
 import MediaItem from './mediaItemSM.component';
 
-const RepeatedMedia = ({ item, count, index }) => {
-  const clusterClass = `repeatedItem-${index + 1}`;
-
+const RepeatedMedia = ({ item, count,snippet }) => {
+  
   return (
-    <div className={clusterClass}>
+    <>
+
       {Array(count).fill().map((_, itemIndex) => (
-        <div key={`${item._key}-${itemIndex}`}>
-          <MediaItem item={item} index={itemIndex} />
-        </div>
+          <MediaItem key={`${item._key}-${itemIndex}`} item={item} index={itemIndex} snippet={snippet} className={itemIndex} />
+
+
       ))}
-    </div>
-  );
+    
+    
+    </>
+
+
+
+  )
+
+
+
+
+
 };
 
 export default RepeatedMedia;

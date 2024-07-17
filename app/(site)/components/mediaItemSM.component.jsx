@@ -1,8 +1,9 @@
+"use client"
 import React from 'react';
-// import ReactPlayerLoader  from '@brightcove/react-player-loader';
+import ReactPlayer from 'react-player'
 import Image from 'next/image';
-
-const MediaItem = ({ item, index }) => {
+export const dynamic = "force-dynamic";
+const MediaItem = ({ item, index,snippet }) => {
   const itemClass = `item-${index + 1}`;
 
   if (item._type === 'projectImage') {
@@ -10,32 +11,27 @@ const MediaItem = ({ item, index }) => {
       <Image
         src={item.asset.url}
         alt={item.attribution || ''}
-        width={50}
-        height={30}
+        width={100}
+        height={100}
         className={`${itemClass} ${item.classImg || ''}`}
       />
     );
   } else if (item._type === 'project_video') {
     return (
-      <p>video</p>
-      // <ReactPlayerLoader
-      //   accountId="your-account-id"  // You'll need to provide this
-      //   videoId={item.asset._ref}    // Assuming this is how you store the video ID
-      //   options={{
-      //     controls: false,
-      //     loop: true,
-      //     muted: true,
-      //     autoplay: true,
-      //     width: 50,
-      //     height: 30,
-      //   }}
-      //   onSuccess={(success) => {
-      //     console.log('Video loaded successfully', success);
-      //   }}
-      //   onFailure={(error) => {
-      //     console.error('Failed to load video', error);
-      //   }}
-      // />
+<>
+<ReactPlayer url={snippet} 
+      loop={true}
+      alt={item.attribution || ''}
+      controls={false}
+      muted={true}
+      autoplay={true}
+      playing={true}
+      playsinline={true}
+      height={100}
+      />
+
+</>
+
     );
   }
   return null;

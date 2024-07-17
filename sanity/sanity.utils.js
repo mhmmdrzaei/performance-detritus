@@ -38,6 +38,7 @@ export async function getProjects(count=18) {
       title,
       "slug": slug.current,
       projectdescription,
+      "snippet": vid_snippet.asset->url,
       projectImages[] {
         _type, 
         _key,
@@ -74,17 +75,23 @@ export async function getProject(slug) {
 }
 export async function getProjectsByCategory(slug) {
   return  createClient(clientConfig).fetch(
-    groq`*[_type == "singleProject" && references(*[_type=="projectCategory" && slug.current == $slug]._id)] {
-      _id,
-      title,
-      "slug": slug.current,
-      projectImages[] {
-        _type, 
-        _key,
-        attribution,
-        "url": asset->url,
+    groq`{
+      "category": *[_type == "projectCategory" && slug.current == $slug][0] {
+        name,
+        "slug": slug.current
       },
-      "category": category->name
+      "projects": *[_type == "singleProject" && references(*[_type=="projectCategory" && slug.current == $slug]._id)] {
+        _id,
+        title,
+        "slug": slug.current,
+        projectImages[] {
+          _type, 
+          _key,
+          attribution,
+          "url": asset->url,
+      },
+            "snippet": vid_snippet.asset->url,
+      }
     }`,
     { slug }
   )

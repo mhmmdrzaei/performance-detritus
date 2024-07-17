@@ -1,18 +1,22 @@
 import React from 'react';
 import RepeatedMedia from './repeatedMedia.component';
 
-const MediaContainer = ({ projectImages }) => {
+const MediaContainer = ({ projectImages, snippet }) => {
+
   return (
-    <div>
-      {projectImages.map((item, index) => (
-        <RepeatedMedia 
-          key={item._key} 
-          item={item} 
-          count={Math.floor(Math.random() * 11) + 10} // Random number between 10 and 20
-          index={index}
-        />
-      ))}
-    </div>
+    <>
+      {projectImages.map((item) => {
+
+        return (
+        
+            <RepeatedMedia 
+              item={item} 
+              snippet={snippet}
+              count={11}
+            />
+        );
+      })}
+    </>
   );
 };
 

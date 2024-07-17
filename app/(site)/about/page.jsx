@@ -1,8 +1,9 @@
 import { getAllCategories, getInformation, getProjects } from '@/sanity/sanity.utils';
-import styles from "./styles/styles.scss";
-import Header from './components/header.component';
-import MediaContainer from './components/mediaContainer.component';
+import { PortableText } from 'next-sanity';
+import Header from '../components/header.component';
+import { v4 as uuidv4 } from "uuid";
 import Link from 'next/link';
+import Image from 'next/image';
 export async function generateMetadata(){
   const settings = await getInformation();
   return {
@@ -29,27 +30,37 @@ export async function generateMetadata(){
 
 export default async function Home() {
   const info = await getInformation();
-  const projects = await getProjects();
   const categories = await getAllCategories();
   
   return (
     <>
       <Header set={info} categories={categories} />
-      <section className='main'>
-      {projects.map((project, index)=> {
-        const  projectImages = project.projectImages
-        const clusterClass = `repeatedItem-${index + 1}`;
-        return (
-          <Link href={`/${project.slug}`}>
-          <section key={project._key} className={clusterClass}>
-          <MediaContainer projectImages={projectImages} snippet={project.snippet}/>
+       {info.map((about)=>(
+        <section className='aboutPage' key={uuidv4()} style={{backgroundImage: `url(${about.bgImgs[0].bgImg})`}}>
+          <figure className='aboutImg'>
+            <Image 
+            src={about.herovisual.heroImgUrl} 
+            width={200}
+            height={200}
+            alt={about.herovisual.attribution}/>
+          </figure>
+          <section className="aboutText">
+            <PortableText value={about.about_text}/>
           </section>
-          </Link>
-        )
-      })}
+          <section className="socials">
+            {about.socialInfo.map((social)=>(
+              <Link href={social.socialURL} key={social._key} target='_blank'>{social.socialName}</Link>
+            ))}
+          </section>
+        
+        
+        </section>
 
 
-      </section>
+
+       ))}
+
+
 
 
 
