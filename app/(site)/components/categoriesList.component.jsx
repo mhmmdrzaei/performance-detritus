@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -29,7 +28,7 @@ export default function CategoriesList({ categories, currentCategory }) {
   return (
     <div className="CategoriesDropdown">
       <button onClick={handleToggle} className="DropdownToggle">
-        {selectedCategory ? selectedCategory.name : 'Select Category'}
+        {selectedCategory ? selectedCategory.name : 'Categories'}
       </button>
       {isOpen && (
         <ul className="DropdownMenu">

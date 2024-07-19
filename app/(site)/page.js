@@ -1,9 +1,14 @@
-import { getAllCategories, getInformation, getProjects } from '@/sanity/sanity.utils';
+import {
+  getAllCategories,
+  getInformation,
+  getProjects,
+} from "@/sanity/sanity.utils";
 import styles from "./styles/styles.scss";
-import Header from './components/header.component';
-import MediaContainer from './components/mediaContainer.component';
-import Link from 'next/link';
-export async function generateMetadata(){
+import Header from "./components/header.component";
+import MediaContainer from "./components/mediaContainer.component";
+import Link from "next/link";
+import HomeContainer from "./components/homeContainer.component";
+export async function generateMetadata() {
   const settings = await getInformation();
   return {
     title: `${settings[0].title}`,
@@ -11,7 +16,7 @@ export async function generateMetadata(){
     openGraph: {
       title: `${settings[0].title}`,
       description: settings[0].seoDescription,
-      url: 'https://laloronoa.vercel.app/',
+      url: "https://laloronoa.vercel.app/",
       siteName: `${settings[0].title}`,
       images: [
         {
@@ -20,12 +25,11 @@ export async function generateMetadata(){
           height: 628,
         },
       ],
-      locale: 'en_US',
-      type: 'website',
+      locale: "en_US",
+      type: "website",
     },
   };
 }
-
 
 export default async function Home() {
   const info = await getInformation();
@@ -36,24 +40,9 @@ export default async function Home() {
     <>
       <Header set={info} categories={categories} />
       <section className='main'>
-      {projects.map((project, index)=> {
-        const  projectImages = project.projectImages
-        const clusterClass = `repeatedItem-${index + 1}`;
-        return (
-          <Link href={`/${project.slug}`}>
-          <section key={project._key} className={clusterClass}>
-          <MediaContainer projectImages={projectImages} snippet={project.snippet}/>
-          </section>
-          </Link>
-        )
-      })}
-
-
+        <HomeContainer projects={projects} />
       </section>
-
-
-
     </>
- 
   );
 }
+

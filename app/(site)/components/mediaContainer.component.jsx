@@ -6,6 +6,7 @@ const MediaContainer = ({ projectImages, snippet }) => {
   return (
     <>
       {projectImages.map((item) => {
+        const image = item[0]
 
         return (
         
