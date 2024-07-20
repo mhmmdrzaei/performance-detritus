@@ -39,7 +39,7 @@ export default async function Home() {
   return (
     <>
       <Header set={info} categories={categories} />
-      <section className='main'>
+      <section className='main homepageMain'>
         <HomeContainer projects={projects} />
       </section>
     </>

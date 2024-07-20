@@ -15,6 +15,6 @@ export default function RefreshButton() {
     }
 
     return (
-        <button onClick={handleRefresh}>Shuffle</button>
+        <button className="shuffleButton" onClick={handleRefresh}>Shuffle</button>
     )
 }

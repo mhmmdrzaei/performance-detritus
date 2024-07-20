@@ -54,7 +54,7 @@ export default function HomeContainer({ projects }) {
       ) : (
         <>
           {projects.map((project, index) => (
-            <section key={project._key} className={`repeatedItem-${index + 1}`}>
+            <section key={project._key} className={`repeated repeatedItem-${index + 1}`}>
               <Link href={`/${project.slug}`} key={project._id}>
                 <MediaContainer
                   projectImages={project.projectImages}

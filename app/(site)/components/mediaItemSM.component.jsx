@@ -27,7 +27,7 @@ const MediaItem = ({ item, index,snippet }) => {
       autoplay={true}
       playing={true}
       playsinline={true}
-      height={100}
+      // height={100}
       />
 
 </>

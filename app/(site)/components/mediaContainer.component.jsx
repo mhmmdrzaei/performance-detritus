@@ -13,7 +13,7 @@ const MediaContainer = ({ projectImages, snippet }) => {
             <RepeatedMedia 
               item={item} 
               snippet={snippet}
-              count={11}
+              count={15}
             />
         );
       })}
