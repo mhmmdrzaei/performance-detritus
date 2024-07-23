@@ -31,7 +31,7 @@ export async function getInformation() {
     }`
   );
 }
-export async function getProjects(count=18) {
+export async function getProjects(count=11) {
   const allPosts = await createClient(clientConfig).fetch(
     groq`*[_type == "singleProject"] {
       _id,
