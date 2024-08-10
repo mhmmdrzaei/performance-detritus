@@ -27,6 +27,8 @@ const MediaItemLG = ({ image }) => {
       autoplay={true}
       playing={true}
       playsinline={true}
+      width={800}
+      height={800}
       />
 
 </>

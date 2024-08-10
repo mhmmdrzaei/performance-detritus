@@ -40,7 +40,9 @@ export default async function CategoryPage({ params }) {
   return (
     <>
       <Header set={info} categories={categories} />
+      
       <ProjectList projects={projects} />
+     
     </>
   )
 }

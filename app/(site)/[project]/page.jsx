@@ -4,6 +4,8 @@ import MediaItemLG from "../components/mediaItemLG.component";
 import { PortableText } from "next-sanity";
 import CloseButton from '../components/closeButton.component'
 import Link from "next/link";
+import ReactVideo from "../components/reactvideo.component";
+
 
 export default async function Project({ params }) {
   const slug = params.project;
@@ -21,21 +23,34 @@ export default async function Project({ params }) {
 
   return (
     <main key={uuidv4()} className="singleProject">
-      <CloseButton/>
+        <ReactVideo video={project.snippet}/>
 
+      <CloseButton/>
+      <section className="projectBody">
       <section className="images">
         {project.projectImages.map((image) => (
           <MediaItemLG image={image} />
         ))}
       </section>
-
       <section className="description">
+        <div className="projDesc">
         <PortableText value={project.projectdescription} />
-        
-      </section>
-      <section className="tag">
+
+        </div>
+
+        <section className="tag">
         <Link href={`/category/${project.categorySlug}`}>{project.categoryName}</Link>
       </section>
+        
+      </section>
+
+
+      </section>
+
+    
+
+
+
     </main>
   );
 }

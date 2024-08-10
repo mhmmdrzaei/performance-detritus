@@ -55,6 +55,7 @@ export async function getProject(slug) {
     groq`*[_type == "singleProject"&& slug.current == $slug][0]{
        _id,
         title,
+        "snippet": vid_snippet.asset->url,
         "slug": slug.current,
         projectdescription,
                 "categoryName": category->name, // Include the category name
