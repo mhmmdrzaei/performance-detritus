@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import SwipeablePost from "./swipableSingle.component";
 import MediaContainer from "./mediaContainer.component";
 import Link from 'next/link';
+import ReactVideo from "./reactvideo.component";
+import MediaItemMD from "./mediaItemMD.component";
 
 export const dynamic = "force-dynamic";
 
@@ -39,16 +41,22 @@ export default function HomeContainer({ projects }) {
     <>
       {isMobile ? (
         <>
-          <Link href={`/${currentProject.slug}`} key={currentProject._id} className="mobileSingle">
-            <SwipeablePost
-              projectImages={currentProject.projectImages[0]}
-              snippet={currentProject.snippet}
-              onSwipe={handleSwipe}
-            />
-          </Link>
+
+        
+        <Link href={`/${currentProject.slug}`} key={currentProject._id} className="mobileSingle">
+         <SwipeablePost
+           projectImages={currentProject.projectImages[0]}
+           snippet={currentProject.snippet}
+           onSwipe={handleSwipe}
+         />
+       </Link>
+       <p className="shuffleText">Shuffle for new items </p>
+
+         
           <div className="swipe-buttons">
-            <button onClick={() => handleSwipe('right')}>Previous</button>
-            <button onClick={() => handleSwipe('left')}>Next</button>
+ 
+            <button className="left" onClick={() => handleSwipe('left')}>^</button>
+            <button className="right" onClick={() => handleSwipe('right')}>^</button>
           </div>
         </>
       ) : (
