@@ -1,10 +1,33 @@
-import { getProject } from "@/sanity/sanity.utils";
+import { getProject, getInformation } from "@/sanity/sanity.utils";
 import { v4 as uuidv4 } from "uuid";
 import MediaItemLG from "../components/mediaItemLG.component";
 import { PortableText } from "next-sanity";
 import CloseButton from '../components/closeButton.component'
 import Link from "next/link";
 import ReactVideo from "../components/reactvideo.component";
+
+export async function generateMetadata(){
+  const settings = await getInformation();
+  return {
+    title: `${settings[0].title}`,
+    description: settings[0].seoDescription,
+    openGraph: {
+      title: `${settings[0].title}`,
+      description: settings[0].seoDescription,
+      url: 'https://laloronoa.vercel.app/',
+      siteName: `${settings[0].title}`,
+      images: [
+        {
+          url: `${settings[0].seoImageUrl}`,
+          width: 1200,
+          height: 628,
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+  };
+}
 
 
 export default async function Project({ params }) {

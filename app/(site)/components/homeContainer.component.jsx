@@ -38,8 +38,8 @@ export default function HomeContainer({ projects }) {
   return (
     <>
       {isMobile ? (
-        <div>
-          <Link href={`/${currentProject.slug}`} key={currentProject._id}>
+        <>
+          <Link href={`/${currentProject.slug}`} key={currentProject._id} className="mobileSingle">
             <SwipeablePost
               projectImages={currentProject.projectImages[0]}
               snippet={currentProject.snippet}
@@ -50,7 +50,7 @@ export default function HomeContainer({ projects }) {
             <button onClick={() => handleSwipe('right')}>Previous</button>
             <button onClick={() => handleSwipe('left')}>Next</button>
           </div>
-        </div>
+        </>
       ) : (
         <>
           {projects.map((project, index) => (

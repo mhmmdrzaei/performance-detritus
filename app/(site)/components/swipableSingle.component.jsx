@@ -20,7 +20,7 @@ export default function SwipeablePost({ projectImages, snippet, onSwipe }) {
   })
 
   return (
-    <div
+    <div className='mobilePost'
       {...handlers}
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,

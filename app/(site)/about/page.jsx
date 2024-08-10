@@ -36,34 +36,38 @@ export default async function Home() {
   const categories = await getAllCategories();
 
   return (
-    <>
+
+    <main className="aboutPage">
+
       <Header set={info} categories={categories} />
       {info.map((about) => (
-        <section
-          className="aboutPage"
+          <>
+        <div
+          className="aboutBG"
           key={uuidv4()}
           style={{ backgroundImage: `url(${about.bgImgs[0].bgImg})` }}
-        >
+        ></div>
           <figure className="aboutImg">
             <Image
               src={about.herovisual.heroImgUrl}
-              width={200}
-              height={200}
+              width={400}
+              height={400}
               alt={about.herovisual.attribution}
             />
           </figure>
           <section className="aboutText">
             <PortableText value={about.about_text} />
-          </section>
-          <section className="socials">
+            <section className="socials">
             {about.socialInfo.map((social) => (
               <Link href={social.socialURL} key={social._key} target="_blank">
                 {social.socialName}
               </Link>
             ))}
           </section>
-        </section>
+          </section>
+          </>
+        
       ))}
-    </>
+          </main>
   );
 }
