@@ -1,6 +1,6 @@
 import React from 'react';
 import RepeatedMedia from './repeatedMedia.component';
-
+import { v4 as uuidv4 } from "uuid";
 const MediaContainer = ({ projectImages, snippet }) => {
 
   return (
@@ -14,6 +14,7 @@ const MediaContainer = ({ projectImages, snippet }) => {
               item={item} 
               snippet={snippet}
               count={18}
+              key={uuidv4()}
             />
         );
       })}

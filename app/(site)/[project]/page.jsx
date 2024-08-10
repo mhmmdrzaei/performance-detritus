@@ -46,13 +46,13 @@ export default async function Project({ params }) {
 
   return (
     <main key={uuidv4()} className="singleProject">
-        <ReactVideo video={project.snippet}/>
+        <ReactVideo key={uuidv4()} video={project.snippet}/>
 
       <CloseButton/>
       <section className="projectBody">
       <section className="images">
         {project.projectImages.map((image) => (
-          <MediaItemLG image={image} />
+          <MediaItemLG key={uuidv4()} image={image} />
         ))}
       </section>
       <section className="description">
