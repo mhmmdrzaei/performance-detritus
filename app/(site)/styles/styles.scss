@@ -1390,11 +1390,11 @@ header {
             text-align: center;
             margin-bottom: 10px;
             width: 50px;
-            @include fontSize(25);
+            @include fontSize(15);
             border: 1px solid black;
         }
         button:nth-child(2){
-            transform: rotate(180deg);
+            // transform: rotate(180deg);
             padding-bottom: 5px;
             
         }
@@ -1541,14 +1541,14 @@ header {
                 width: 40px;
                 height: 40px;
                 align-self: center;
-            @include fontSize(25);
+            @include fontSize(15);
             border: 1px solid black;
             }
             .right {
-                transform: rotate(90deg);
+                
             }
             .left {
-                transform: rotate(-90deg);
+                
             }
            }
     }

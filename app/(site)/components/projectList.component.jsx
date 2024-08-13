@@ -60,8 +60,8 @@ export default function ProjectList({ projects }) {
 const Navigation = ({ onScrollUp, onScrollDown, showUp, showDown }) => {
   return (
     <div className="navigation">
-      {showUp && <button onClick={onScrollUp}>^</button>}
-      {showDown && <button onClick={onScrollDown}>^</button>}
+      {showUp && <button onClick={onScrollUp}>↑</button>}
+      {showDown && <button onClick={onScrollDown}>↓</button>}
     </div>
   );
 };

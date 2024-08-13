@@ -55,10 +55,10 @@ export default function HomeContainer({ projects }) {
          
           <div className="swipe-buttons">
           {currentIndex < projects.length - 1 && (
-      <button className="left" onClick={() => handleSwipe('left')}>^</button>
+      <button className="left" onClick={() => handleSwipe('left')}>←</button>
     )}
             {currentIndex > 0 && (
-      <button className="right" onClick={() => handleSwipe('right')}>^</button>
+      <button className="right" onClick={() => handleSwipe('right')}>→</button>
     )}
 
           </div>
