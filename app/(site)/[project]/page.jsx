@@ -55,16 +55,21 @@ export default async function Project({ params }) {
           <MediaItemLG key={uuidv4()} image={image} />
         ))}
       </section>
+
       <section className="description">
+      {project.projectdescription && (
         <div className="projDesc">
         <PortableText value={project.projectdescription} />
-
         </div>
+      )}
+        
 
+       
+        {project.categorySlug && (
         <section className="tag">
         <Link href={`/category/${project.categorySlug}`}>{project.categoryName}</Link>
       </section>
-        
+            )}
       </section>
 
 
