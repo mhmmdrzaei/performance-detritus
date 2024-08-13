@@ -54,6 +54,7 @@
     background: white;
     border: none;
     font-family: inherit;
+    color: black;
   }
 header {
     .siteTitle {
@@ -1424,7 +1425,7 @@ header {
         margin: 0 auto;
         max-width: 700px;
         position: absolute;
-        top: 100%;
+        top: 120%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: white;
@@ -1474,12 +1475,13 @@ header {
                 left: initial;
                 right: 0;
                 text-align: right;
+                width: fit-content;
             }
         }
         .shuffleButton {
             right: calc(50% - 35px);
-            bottom: 7vh;
-            border: 1px solid black;
+            bottom: 0;
+            // border: 1px solid black;
             padding-top: 10px
         }
     }
@@ -1537,6 +1539,7 @@ header {
             z-index: 1;
             button {
                 width: 50px;
+                height: 50px;
             @include fontSize(25);
             border: 1px solid black;
             }
