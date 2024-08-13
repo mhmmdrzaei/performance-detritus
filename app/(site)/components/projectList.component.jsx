@@ -51,7 +51,7 @@ export default function ProjectList({ projects }) {
         onScrollUp={scrollUp} 
         onScrollDown={scrollDown} 
         showUp={currentStackIndex > 0}
-        showDown={true} // Always show down as it's a loop
+        showDown={true} 
       />
         </main>
     </>
@@ -60,7 +60,7 @@ export default function ProjectList({ projects }) {
 const Navigation = ({ onScrollUp, onScrollDown, showUp, showDown }) => {
   return (
     <div className="navigation">
-      {showUp && <button onClick={onScrollUp}>↑</button>}
+      {showUp && <button className="topButton"onClick={onScrollUp}>↑</button>}
       {showDown && <button onClick={onScrollDown}>↓</button>}
     </div>
   );

@@ -16,7 +16,7 @@ export async function generateMetadata() {
     openGraph: {
       title: `${settings[0].title}`,
       description: settings[0].seoDescription,
-      url: "https://laloronoa.vercel.app/",
+      url: "https://performance-detritus.vercel.app/",
       siteName: `${settings[0].title}`,
       images: [
         {
