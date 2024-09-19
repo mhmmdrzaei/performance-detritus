@@ -22,7 +22,7 @@ const MediaItem = ({ item, index, snippet }) => {
         onMouseEnter={handleMouseEnter}
       >
         <Image
-          src={item.asset.url}
+          src={item.url}
           alt={item.attribution || ''}
           width={100}
           height={100}

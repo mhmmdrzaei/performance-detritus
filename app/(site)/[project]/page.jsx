@@ -2,11 +2,12 @@ import { getProject, getInformation } from "@/sanity/sanity.utils";
 import { v4 as uuidv4 } from "uuid";
 import MediaItemLG from "../components/mediaItemLG.component";
 import { PortableText } from "next-sanity";
-import CloseButton from '../components/closeButton.component'
+import CloseButton from "../components/closeButton.component";
 import Link from "next/link";
 import ReactVideo from "../components/reactvideo.component";
+import Image from 'next/image';
 
-export async function generateMetadata(){
+export async function generateMetadata() {
   const settings = await getInformation();
   return {
     title: `${settings[0].title}`,
@@ -14,7 +15,7 @@ export async function generateMetadata(){
     openGraph: {
       title: `${settings[0].title}`,
       description: settings[0].seoDescription,
-      url: 'https://performance-detritus.vercel.app/',
+      url: "https://performance-detritus.vercel.app/",
       siteName: `${settings[0].title}`,
       images: [
         {
@@ -23,12 +24,11 @@ export async function generateMetadata(){
           height: 628,
         },
       ],
-      locale: 'en_US',
-      type: 'website',
+      locale: "en_US",
+      type: "website",
     },
   };
 }
-
 
 export default async function Project({ params }) {
   const slug = params.project;
@@ -46,39 +46,40 @@ export default async function Project({ params }) {
 
   return (
     <main key={uuidv4()} className="singleProject">
-        <ReactVideo key={uuidv4()} video={project.snippet}/>
-
-      <CloseButton/>
-      <section className="projectBody">
-      <section className="images">
-        {project.projectImages.map((image) => (
-          <MediaItemLG key={uuidv4()} image={image} />
-        ))}
-      </section>
-
-      <section className="description">
-      {project.projectdescription && (
-        <div className="projDesc">
-        <PortableText value={project.projectdescription} />
-        </div>
+      {project.snippet && <ReactVideo key={uuidv4()} video={project.snippet} />}
+      {project.projectImages[0]._type === 'projectImage' && (
+              <Image
+              src={project.projectImages[0].url}
+              width={300}
+              height={300}
+              className='bg-img'
+            />
       )}
-        
 
-       
-        {project.categorySlug && (
-        <section className="tag">
-        <Link href={`/category/${project.categorySlug}`}>{project.categoryName}</Link>
+      <CloseButton />
+      <section className="projectBody">
+        <section className="images">
+          {project.projectImages.map((image) => (
+            <MediaItemLG key={uuidv4()} image={image} />
+          ))}
+        </section>
+
+        <section className="description">
+          {project.projectdescription && (
+            <div className="projDesc">
+              <PortableText value={project.projectdescription} />
+            </div>
+          )}
+
+          {project.categorySlug && (
+            <section className="tag">
+              <Link href={`/category/${project.categorySlug}`}>
+                {project.categoryName}
+              </Link>
+            </section>
+          )}
+        </section>
       </section>
-            )}
-      </section>
-
-
-      </section>
-
-    
-
-
-
     </main>
   );
 }

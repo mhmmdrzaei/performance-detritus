@@ -1309,6 +1309,16 @@ header {
          filter: blur(20px);
         }
     }
+    .bg-img {
+        color: transparent;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        object-fit: cover;
+        top: 00;
+        left: 0;
+        filter: blur(20px);
+    }
     .projectBody{
         @extend .flex;
         justify-content: space-around;

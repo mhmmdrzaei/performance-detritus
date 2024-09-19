@@ -11,9 +11,9 @@ const MediaItemLG = ({ image }) => {
       <Image
         src={image.url}
         alt={image.attribution || ''}
-        width={300}
-        height={300}
-        className={`${itemClass} ${image.classImg || ''}`}
+        width={800}
+        height={800}
+        className={`${image.classImg || ''}`}
       />
     );
   } else if (image._type === 'project_video') {

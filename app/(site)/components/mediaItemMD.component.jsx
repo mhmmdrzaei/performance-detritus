@@ -8,13 +8,14 @@ const MediaItemMD = ({ image, snippet }) => {
 
   if (image._type === 'projectImage') {
     return (
-      <Image
-        src={image.asset.url}
-        alt={image.attribution || ''}
-        width={300}
-        height={300}
-        className={`${itemClass} ${image.classImg || ''}`}
-      />
+      // <Image
+      //   src={image.url}
+      //   // alt={image.attribution || ''}
+      //   width={800}
+      //   height={800}
+      //   // className={`${image.classImg || ''}`}
+      // />
+      <img src={image.url} alt="" />
     );
   } else if (image._type === 'project_video') {
     return (
