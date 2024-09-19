@@ -15,7 +15,7 @@ const MediaItemMD = ({ image, snippet }) => {
       //   height={800}
       //   // className={`${image.classImg || ''}`}
       // />
-      <img src={image.url} alt="" />
+      <img src={image.url} alt={image.attribution || ''} />
     );
   } else if (image._type === 'project_video') {
     return (
