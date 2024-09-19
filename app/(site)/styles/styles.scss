@@ -1348,6 +1348,10 @@ header {
         }
     .images {
         width: fit-content;
+        img {
+            max-height: 800px;
+            width: auto;
+        }
         video {
             max-width: 750px;
             max-height: 70vh;
